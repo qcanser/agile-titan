@@ -21,45 +21,26 @@ This is a FastAPI boilerplate, which includes includes:
 
 You'll need Docker and Docker Compose to run this application.
 
-1. Clone the repository
+1. Build the project
 
 ```bash
-git clone https://github.com/atlekbai/fastapi-boilerplate.git
+docker-compose build
 ```
 
-2. Navigate to the directory
-
-```bash
-cd fastapi-boilerplate
-```
-
-3. Run the application
+2. Start the project
 
 ```bash
 docker-compose up -d
 ```
 
-Copy environment configurations and edit the file.
+3. Watch logs
 
 ```bash
-cp .env.example .env
+docker-compose logs -f app
 ```
 
-Export environmental configurations.
-
-```bash
-export $(cat .env)
-```
-
-Start the FastAPI server.
-
-```bash
-poetry install
-poetry shell
-sh ./scripts/launch.sh
-```
-
-This command will start the FastAPI server on port 8000 and the MongoDB service on port 27017. You can navigate to `http://localhost:8000/docs` in your browser to access the automatically generated API documentation.
+This command will start the FastAPI server on port 8000, the MongoDB service on port 27017 and Mongo admin panel on port 8081.
+You can navigate to `http://localhost:8000/docs` in your browser to access the automatically generated API documentation.
 
 ## 📚 Project Structure
 
@@ -74,20 +55,10 @@ The main sections of the project are:
 - `app/auth/adapters`: Contains the JWT management logic.
 - `app/auth/utils`: Contains utility functions, such as password hashing.
 
-## 🛠️ Development
+## ⚙️ Local Development
 
-### Install Dependencies
-
-This project uses poetry for dependency management. To install the dependencies, run:
-
-```bash
-poetry install
 ```
-
-### Launch the Application
-
-This project includes a script to launch the application, which can be started with:
-
-```bash
+poetry install
+poetry shell
 sh ./scripts/launch.sh
 ```
