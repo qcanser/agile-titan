@@ -46,5 +46,5 @@ The `tasks` table has the following fields:
 
 ## Run the server
 
-You can start the server by running the command `node index.js` (or `nodemon index.js` if you have Nodemon installed). The server runs on port 4999.
+You can start the server by running the command `docker-compose up -d`. The server runs on port 4445.
 
