@@ -48,4 +48,3 @@ The `tasks` table has the following fields:
 
 You can start the server by running the command `node index.js` (or `nodemon index.js` if you have Nodemon installed). The server runs on port 4999.
 
-Please feel free to reach out if you have any questions or issues!
