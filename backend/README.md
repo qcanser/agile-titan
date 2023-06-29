@@ -1,64 +1,51 @@
-# FastAPI + MongoDB Boilerplate
+# AgileTitan - Project Management API
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/WleFVe?referralCode=UBd_g_)
+AgileTitan is a project management API built with Express and PostgreSQL. This document provides a summary of the routes available in the API and a brief overview of the database structure.
 
-This is a FastAPI boilerplate, which includes includes:
+## Database
 
-- MongoDB as database
-- Bcrypt for password hashing
-- JWT for user token management and verification
-- Dockerfile and docker-compose files for easy deployment
-- CORS Middleware configuration
+The `agiletitan` database contains two tables: `projects` and `tasks`.
 
-## 📚 Features
+The `projects` table has the following fields:
+- `id`: a unique identifier for the project
+- `date_created`: the date and time the project was created
+- `title`: the title of the project
+- `description`: a detailed description of the project
+- `status`: the current status of the project (possible values are 'To-do', 'In progress', 'Closed', 'Backlog')
 
-1. User registration.
-2. User authentication and token creation.
-3. User verification and token validation.
-4. Encrypted password management.
+The `tasks` table has the following fields:
+- `id`: a unique identifier for the task
+- `date_created`: the date and time the task was created
+- `project_id`: the ID of the project the task belongs to
+- `title`: the title of the task
+- `description`: a detailed description of the task
+- `deadline`: the date and time the task is due
+- `status`: the current status of the task (possible values are 'To-do', 'In progress', 'Closed', 'Backlog')
 
-## 🚀 Quick Start
+## API Routes
 
-You'll need Docker and Docker Compose to run this application.
+### Tasks
 
-1. Build the project
+- `POST /tasks`: Creates a new task. The request body should include `project_id`, `title`, `description`, `deadline`, and `status`.
 
-```bash
-docker-compose build
-```
+- `PUT /tasks/:id`: Updates an existing task. The request body can include `project_id`, `title`, `description`, `deadline`, and `status`.
 
-2. Start the project
+- `DELETE /tasks/:id`: Deletes a task. 
 
-```bash
-docker-compose up -d
-```
+- `GET /tasks/:id`: Retrieves a task. 
 
-3. Watch logs
+### Projects
 
-```bash
-docker-compose logs -f app
-```
+- `POST /projects`: Creates a new project. The request body should include `title`, `description`, and `status`.
 
-This command will start the FastAPI server on port 8000, the MongoDB service on port 27017 and Mongo admin panel on port 8081.
-You can navigate to `http://localhost:8000/docs` in your browser to access the automatically generated API documentation.
+- `PUT /projects/:id`: Updates an existing project. The request body can include `title`, `description`, and `status`.
 
-## 📚 Project Structure
+- `DELETE /projects/:id`: Deletes a project.
 
-The main sections of the project are:
+- `GET /projects/:id`: Retrieves a project. 
 
-- `app/main.py`: This is the entry point of the application.
-- `app/config.py`: This file contains the global configuration of the application.
-- `app/auth`: This folder contains the logic related to the authentication system.
-- `app/auth/service.py`: Contains the service layer logic for the authentication system.
-- `app/auth/repository`: Contains the logic for interacting with the MongoDB database.
-- `app/auth/router`: Contains the routing logic for the authentication API.
-- `app/auth/adapters`: Contains the JWT management logic.
-- `app/auth/utils`: Contains utility functions, such as password hashing.
+## Run the server
 
-## ⚙️ Local Development
+You can start the server by running the command `node index.js` (or `nodemon index.js` if you have Nodemon installed). The server runs on port 4999.
 
-```
-poetry install
-poetry shell
-sh ./scripts/launch.sh
-```
+Please feel free to reach out if you have any questions or issues!
