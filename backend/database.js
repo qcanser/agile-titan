@@ -3,10 +3,10 @@ const { Pool } = pg;
 
 const pool = new Pool({
     user: "postgres",
-    password: "satoshi-nakamoto",
-    host: "localhost",
-    port: "5432",
-    database: "perntodo"
+    password: "mjVL5zkpexgdi1pCZnEH",
+    host: "containers-us-west-54.railway.app",
+    port: "5645",
+    database: "railway"
 });
 
 export default pool;
