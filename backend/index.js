@@ -84,6 +84,6 @@ app.get('/projects/:id', async (req, res) => {
     res.json(project.rows[0]);
 });
 
-app.listen(4445, () => {
-    console.log('server has started on port 4445');
+app.listen(process.env.PORT || 3000, () => {
+    console.log('server has started...');
 });
