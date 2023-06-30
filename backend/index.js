@@ -84,6 +84,7 @@ app.get('/projects/:id', async (req, res) => {
     res.json(project.rows[0]);
 });
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log('server has started...');
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
