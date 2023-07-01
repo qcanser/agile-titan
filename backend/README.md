@@ -43,8 +43,3 @@ The `tasks` table has the following fields:
 - `DELETE /projects/:id`: Deletes a project.
 
 - `GET /projects/:id`: Retrieves a project. 
-
-## Run the server
-
-You can start the server by running the command `docker-compose up -d`. The server runs on port 4445.
-

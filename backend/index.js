@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import pool from './database.js';
+import http from 'http';
 
 const app = express();
 
@@ -84,7 +85,10 @@ app.get('/projects/:id', async (req, res) => {
     res.json(project.rows[0]);
 });
 
+const server = http.createServer(app);
+const HOST = '::'; // IPv6 equivalent of 0.0.0.0
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+
+server.listen(PORT, HOST, () => {
+    console.log(`Server running on ${HOST}:${PORT}`);
 });

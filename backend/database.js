@@ -1,8 +1,11 @@
 import pg from 'pg';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 const { Pool } = pg;
 
-const connectionString =
-    "postgresql://postgres:mjVL5zkpexgdi1pCZnEH@containers-us-west-54.railway.app:5645/railway";
+const connectionString = process.env.DB_CONNECTION_STRING;
 
 const pool = new Pool({
     connectionString,
