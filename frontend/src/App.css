@@ -1,0 +1,111 @@
+@font-face {
+  font-family: 'NES';
+  src: url('./fonts/Pixel_NES.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*{
+  font-family: "NES";
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.board {
+  display: flex;
+  gap: 16px;
+}
+
+.column {
+  flex: 1;
+  background-color: #f1f1f1;
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.task-list {
+  min-height: 100px;
+  margin-bottom: 8px;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.task {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+.time{
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: baseline;
+}
+
+.labeltime{
+  margin-right: 0.5rem;
+}
+
+.alarm{
+  width: 100vw;
+  height: 100vh;
+  z-index: 50;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#video{
+  width: 100vw;
+  height: 100vh;
+  z-index: 50;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.video-close{
+  position: fixed;
+  z-index: 60;
+  bottom: 10rem;
+}
